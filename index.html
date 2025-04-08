@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Just for You 💖</title>
+  <title>Just for You 🩵 </title>
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand&display=swap" rel="stylesheet">
   <style>
     body {
@@ -95,7 +95,7 @@
   </div>
 
   <div class="container hidden fade-in" id="success-block">
-    <h1>Yayyy, c'est toi ! 💘</h1>
+    <h1>Yayyy, c'est toi ! hihi</h1>
     <p>À quel point tu m’aimes ? 😏</p>
     <input type="range" id="love-slider" min="0" max="10" value="0">
     <br />
@@ -104,7 +104,7 @@
 
   <div class="container hidden fade-in" id="love-result-block">
     <h1 id="love-result"></h1>
-    <button onclick="retryLove()" id="retry-button" class="hidden">Réessayer 😅</button>
+    <button onclick="retryLove()" id="retry-button" class="hidden">Réessayer</button>
   </div>
 
   <script>
@@ -128,10 +128,21 @@
         loveResult.innerText = 'Aww 🥹 Je t’aime aussi ! 💕';
         retryButton.classList.add('hidden');
         const dinnerButton = document.createElement('button');
-        dinnerButton.innerText = 'On sort ? 🍽️';
-        dinnerButton.style.marginTop = '20px';
-        dinnerButton.onclick = () => window.location.href = 'dinner.html';
-        document.getElementById('love-result-block').appendChild(dinnerButton);
+dinnerButton.innerText = 'On sort ? 🍽️';
+dinnerButton.style.margin = '10px';
+dinnerButton.onclick = () => window.location.href = 'dinner.html';
+
+const noButton = document.createElement('button');
+noButton.innerText = 'Ou pas ? 😶';
+noButton.style.margin = '10px';
+noButton.onclick = () => window.location.href = 'nopage.html';
+
+const btnContainer = document.createElement('div');
+btnContainer.appendChild(dinnerButton);
+btnContainer.appendChild(noButton);
+
+document.getElementById('love-result-block').appendChild(btnContainer);
+
 
       } else {
         loveResult.innerText = 'Euh… on recommence ? 🤨';
