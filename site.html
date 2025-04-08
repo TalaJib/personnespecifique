@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Site</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="name-block">
+    <h1>Hi, what's your name?</h1>
+    <input type="text" id="name-input" placeholder="Enter your name">
+    <button onclick="validateName()">Submit</button>
+  </div>
+
+  <div id="success-block" class="hidden">
+    <h1>Yayyy, it's you!</h1>
+    <label for="love-slider">How much do you love me?</label>
+    <input type="range" id="love-slider" min="0" max="10" value="0">
+    <button onclick="validateLove()">Submit</button>
+  </div>
+
+  <div id="love-result-block" class="hidden">
+    <h1 id="love-result"></h1>
+    <button onclick="retryLove()" id="retry-button" class="hidden">Retry</button>
+  </div>
+
+  <script>
+    function validateName() {
+      const nameInput = document.getElementById('name-input').value.toLowerCase();
+      const validNames = ['momo', 'mohammed-ali', 'mohammed ali'];
+      if (validNames.includes(nameInput)) {
+        document.getElementById('name-block').classList.add('hidden');
+        document.getElementById('success-block').classList.remove('hidden');
+      } else {
+        alert('Invalid name. Please try again.');
+      }
+    }
+
+    function validateLove() {
+      const loveValue = document.getElementById('love-slider').value;
+      const loveResult = document.getElementById('love-result');
+      const retryButton = document.getElementById('retry-button');
+      if (loveValue == 10) {
+        loveResult.innerText = 'Yayy!';
+        retryButton.classList.add('hidden');
+      } else {
+        loveResult.innerText = 'Um no, retry';
+        retryButton.classList.remove('hidden');
+      }
+      document.getElementById('success-block').classList.add('hidden');
+      document.getElementById('love-result-block').classList.remove('hidden');
+    }
+
+    function retryLove() {
+      document.getElementById('love-result-block').classList.add('hidden');
+      document.getElementById('success-block').classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>
